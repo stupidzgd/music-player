@@ -12,7 +12,17 @@
       </div>
       <div class="recommend-list">
         <h1 class="list-title">热门歌单推荐</h1>
-        <ul></ul>
+        <ul>
+          <li v-for="(item, index) in discList" class="item" :key="index">
+            <div class="icon">
+              <img width="60" height="60" :src="item.imgurl">
+            </div>
+            <div class="text">
+              <h2 class="name" v-html="item.creator.name"></h2>
+              <p class="desc" v-html="item.dissname"></p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -26,7 +36,8 @@ import Slider from 'base/slider/slider'
 export default {
   data() {
     return {
-      recommends: []
+      recommends: [],
+      discList: []
     }
   },
   created() {
@@ -43,7 +54,9 @@ export default {
     },
     _getDiscList() {
       getDiscList().then((res) => {
-        console.log(res)
+        if (res.code === ERR_OK) {
+          this.discList = res.data.list
+        }
       })
     }
   },
@@ -79,6 +92,37 @@ export default {
         text-align: center;
         font-size: $font-size-medium;
         color: $color-theme;
+      }
+
+      .item {
+        display: flex;
+        align-items: center;
+        padding: 0 20px 20px 20px;
+
+        .icon {
+          flex: 0 0 60px;
+          width: 60px;
+          padding-right: 20px;
+        }
+
+        .text {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          justify-content: center;
+          line-height: 20px;
+          overflow: hidden;
+          font-size: $font-size-medium;
+
+          .name {
+            margin-bottom: 10px;
+            color: $color-text;
+          }
+
+          .desc {
+            color: $color-text-d;
+          }
+        }
       }
     }
   }
