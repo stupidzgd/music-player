@@ -46,6 +46,15 @@ export default {
     refresh() {
       this.scroll && this.scroll.refresh()
     }
+  },
+  watch: {
+    data() {
+      console.log(this.data)
+      console.log('refresh')
+      setTimeout(() => {
+        this.refresh()
+      }, 20)
+    }
   }
 }
 </script>
