@@ -9,14 +9,14 @@
       <li v-for="(group, index) in data" class="list-group" :key="index" ref="listGroup">
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
-          <li v-for="(item, index) in group.items" :key="index" class="list-group-item">
+          <li @click="selectItem(item)" v-for="(item, index) in group.items" :key="index" class="list-group-item">
             <img class="avatar" v-lazy="item.avatar">
             <span class="name">{{item.name}}</span>
           </li>
         </ul>
       </li>
     </ul>
-    <div class="list-shortcut" @touchstart="onShortcutTouchStart" @touchmove.stop.prevent="onShorcutTouchMove">
+    <div class="list-shortcut" @touchstart="onShortcutTouchStart" @touchmove.stop.prevent="onShortcutTouchMove">
       <ul>
         <li v-for="(item, index) in shortcutList" class="item" :key="index" :data-index="index" :class="{current: currentIndex === index}">
           {{ item }}
