@@ -27,7 +27,7 @@ export function getSingerDetail(singerId) {
     needNewCode: 0,
     platform: 'yqq',
     singermid: singerId,
-    order: 'time',
+    order: 'listen',
     begin: 0,
     num: 100,
     g_tk: 117557683,
