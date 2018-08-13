@@ -6,7 +6,7 @@ import { ERR_OK } from 'api/config'
 const debug = process.env.NODE_ENV !== 'production'
 
 export function getSongsUrl(songs) {
-  const url = debug ? '/api/getPurlUrl' : 'http://zgd666.cc/music/api/getPurlUrl'
+  const url = debug ? '/api/getPurlUrl' : 'http://stupidzgd.com/music/api/getPurlUrl'
 
   let mids = []
   let types = []
