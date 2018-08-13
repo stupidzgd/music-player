@@ -1,6 +1,7 @@
 var express = require('express')
 var config = require('./config/index')
 var axios = require('axios')
+const bodyParser = require('body-parser')
 
 var port = process.env.PORT || config.build.port
 
@@ -41,6 +42,21 @@ apiRoutes.get('/getCdInfo', function (req, res) {
       }
     }
     res.json(ret)
+  }).catch((e) => {
+    console.log(e)
+  })
+})
+
+app.post('/api/getPurlUrl', bodyParser.json(), function (req, res) {
+  const url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
+  axios.post(url, req.body, {
+    headers: {
+      referer: 'https://y.qq.com/',
+      origin: 'https://y.qq.com',
+      'Content-type': 'application/x-www-form-urlencoded'
+    }
+  }).then((response) => {
+    res.json(response.data)
   }).catch((e) => {
     console.log(e)
   })
