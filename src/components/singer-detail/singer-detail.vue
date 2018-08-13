@@ -48,6 +48,7 @@ export default {
       list.forEach((item) => {
         let { musicData } = item
         if (musicData.songid && musicData.albummid) {
+          console.log(musicData.url)
           ret.push(createSong(musicData))
         }
       })

@@ -16,7 +16,7 @@ export function getRecommend() {
 }
 
 export function getDiscList() {
-  const url = debug ? '/api/getDiscList' : 'http://zgd666.cc/music/api/getDiscList'
+  const url = debug ? '/api/getDiscList' : 'http://stupidzgd.com/music/api/getDiscList'
 
   const data = Object.assign({}, commonParams, {
     picmid: 1,
@@ -39,7 +39,7 @@ export function getDiscList() {
 }
 
 export function getSongList(disstid) {
-  const url = debug ? '/api/getCdInfo' : 'http://zgd666.cc/music/api/getCdInfo'
+  const url = debug ? '/api/getCdInfo' : 'http://stupidzgd.com/music/api/getCdInfo'
 
   const data = Object.assign({}, commonParams, {
     disstid,
